@@ -14,14 +14,9 @@ fn main() {
         return;
     }
     track(&root, "HEAD");
-    if let Some(head) = std::fs::read_to_string(root.join(".git/HEAD"))
-        .ok()
-        .and_then(|text| {
-            text.trim()
-                .strip_prefix("ref:")
-                .map(|r| r.trim().to_string())
-        })
-    {
+    // The branch ref is found through git, because in a worktree `.git` is a file and
+    // the branch lives in the common directory, not in this worktree's own HEAD file.
+    if let Some(head) = git(&root, &["symbolic-ref", "--quiet", "HEAD"]) {
         track(&root, &head);
         track(&root, "packed-refs");
     }
