@@ -1,10 +1,14 @@
 # Quality
 
-Record of 2026-11-25. The checks below ran on commit `c12f04d2c83d30a9a27a537d33c1a2f676af42fd` (`c12f04d`), the tip of `origin/main`, in a clean separate worktree. This commit adds documentation only (this file and `QUALITY.nl.md`).
+Record of 2026-11-25. The checks below ran on commit `17b10fdc13308759ff66109dafec0c8d61148129` (`17b10fd`), the tip of `origin/main` at the time, in a clean separate worktree. The commit that records this page changes documentation only (this file and `QUALITY.nl.md`).
 
 Toolchain: stable rustc 1.99.0 (b940084d7 2026-09-28) with cargo 1.99.0 (5f94df478 2026-08-27). Host: Linux x86_64. Version 1.0.0 is not published and has no tag.
 
 This page records checks. It is not a guarantee and it is not a fuzz report.
+
+## Source of the prices
+
+The tool reproduces the AWS CloudFront pay-as-you-go list prices (Data Transfer Out to Internet and HTTP(S) requests). The documentation it copies is at https://aws.amazon.com/cloudfront/pricing/pay-as-you-go/ . The snapshot in `data/prices.txt` was checked on 2026-11-09. This measurement did not fetch that page again.
 
 ## Commands
 
