@@ -1,0 +1,31 @@
+[package]
+name = "cdn-egress-bill"
+version = "1.0.0"
+edition = "2021"
+rust-version = "1.85"
+license = "MIT OR Apache-2.0"
+authors = ["PEPAI <pep_ai@icloud.com>"]
+description = "Estimate CloudFront egress cost per path and edge region from standard logs"
+readme = "README.md"
+repository = "https://github.com/qwpp7g79y4-maker/cdn-egress-bill"
+homepage = "https://www.pepai.nl"
+keywords = ["cloudfront", "cdn", "egress", "billing", "cli"]
+categories = ["command-line-utilities"]
+exclude = ["/.github/", "/.gitattributes", "/scripts/"]
+
+[dependencies]
+clap = { version = "=4.5.60", features = ["derive"] }
+flate2 = "=1.1.11"
+
+[lib]
+name = "cdn_egress_bill"
+path = "src/lib.rs"
+
+[[bin]]
+name = "cdn-egress-bill"
+path = "src/main.rs"
+
+# The dependencies are built with optimisations in debug builds too: the tests
+# run the debug binary on files of hundreds of thousands of gzip members.
+[profile.dev.package."*"]
+opt-level = 3

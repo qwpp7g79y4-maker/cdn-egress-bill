@@ -1,0 +1,38 @@
+# CDN egress estimate
+
+Estimate from list prices, not your AWS invoice (free tier, credits, discounts not included)
+
+- bron: https://aws.amazon.com/cloudfront/pricing/pay-as-you-go/
+- gecontroleerd: 2026-11-09
+- bytes_per_gb: 1073741824
+- gratis_data_bytes: 1099511627776
+- gratis_verzoeken: 10000000
+
+geen flat-rate, geen korting, geen Savings Bundle
+
+regio = prijsregio van de edge-locatie (x-edge-location), niet het land van de kijker
+
+## 2026-03
+
+### per regio
+
+| regio | edges | bytes | http | https | overig | usd | berekend |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| US/Mexico/Canada | IAD | 2000 | 1 | 0 | 0 | 0.000000 | ja |
+| Europe/Israel/Türkiye | AMS | 1000 | 0 | 1 | 0 | 0.000000 | ja |
+| onbekend | ZZZ | 50 | 0 | 1 | 0 | - | nee |
+
+### per pad
+
+| pad | bytes | verzoeken | usd | onberekend_bytes | onberekend_verzoeken |
+| --- | --- | --- | --- | --- | --- |
+| /img.png | 2000 | 1 | 0.000000 | 0 | 0 |
+| /secret | 50 | 1 | 0.000000 | 50 | 1 |
+| /video.mp4 | 1000 | 1 | 0.000000 | 0 | 0 |
+
+estimated_usd_month=0.000000
+
+- gratis_data_toegepast: 3000
+- gratis_verzoeken_toegepast: 2
+- onberekend_bytes: 50
+- onberekend_verzoeken: 1

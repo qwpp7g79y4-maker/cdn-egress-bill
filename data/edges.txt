@@ -1,0 +1,122 @@
+# IATA-code uit x-edge-location (de eerste drie letters) naar een prijsregio.
+# Dit is de CloudFront-edge, niet het land van de kijker.
+# Een code die hier niet staat wordt "onbekend" en krijgt geen prijs. Er wordt niet geraden.
+# China heeft een aparte prijslijst en staat bewust niet op deze kaart.
+# Prijsregio's: data/prices.txt, bron
+# https://aws.amazon.com/cloudfront/pricing/pay-as-you-go/
+# gecontroleerd 2026-11-09.
+
+# US/Mexico/Canada
+ATL us_mexico_canada
+BOS us_mexico_canada
+ORD us_mexico_canada
+DFW us_mexico_canada
+DEN us_mexico_canada
+HIO us_mexico_canada
+IAH us_mexico_canada
+JAX us_mexico_canada
+LAX us_mexico_canada
+MIA us_mexico_canada
+MSP us_mexico_canada
+JFK us_mexico_canada
+EWR us_mexico_canada
+PHL us_mexico_canada
+PHX us_mexico_canada
+SLC us_mexico_canada
+SFO us_mexico_canada
+SEA us_mexico_canada
+IAD us_mexico_canada
+DTW us_mexico_canada
+BNA us_mexico_canada
+IND us_mexico_canada
+MCI us_mexico_canada
+PIT us_mexico_canada
+CMH us_mexico_canada
+CLT us_mexico_canada
+YTO us_mexico_canada
+YUL us_mexico_canada
+YVR us_mexico_canada
+QRO us_mexico_canada
+
+# Europe/Israel/Türkiye
+AMS europe_israel_turkiye
+ARN europe_israel_turkiye
+ATH europe_israel_turkiye
+BER europe_israel_turkiye
+BCN europe_israel_turkiye
+BRU europe_israel_turkiye
+BUD europe_israel_turkiye
+CDG europe_israel_turkiye
+CPH europe_israel_turkiye
+DUB europe_israel_turkiye
+DUS europe_israel_turkiye
+FCO europe_israel_turkiye
+FRA europe_israel_turkiye
+HEL europe_israel_turkiye
+IST europe_israel_turkiye
+LIS europe_israel_turkiye
+LHR europe_israel_turkiye
+MAD europe_israel_turkiye
+MAN europe_israel_turkiye
+MRS europe_israel_turkiye
+MUC europe_israel_turkiye
+MXP europe_israel_turkiye
+OSL europe_israel_turkiye
+OTP europe_israel_turkiye
+PRG europe_israel_turkiye
+SOF europe_israel_turkiye
+TLV europe_israel_turkiye
+TXL europe_israel_turkiye
+VIE europe_israel_turkiye
+WAW europe_israel_turkiye
+ZRH europe_israel_turkiye
+
+# South Africa/Kenya/Nigeria/Egypt/Middle East
+CPT africa_middle_east
+JNB africa_middle_east
+NBO africa_middle_east
+LOS africa_middle_east
+DXB africa_middle_east
+FJR africa_middle_east
+BAH africa_middle_east
+MCT africa_middle_east
+
+# South America
+GRU south_america
+GIG south_america
+FOR south_america
+BOG south_america
+EZE south_america
+SCL south_america
+LIM south_america
+
+# Japan
+NRT japan
+KIX japan
+
+# Australia/New Zealand
+SYD australia_new_zealand
+MEL australia_new_zealand
+PER australia_new_zealand
+BNE australia_new_zealand
+AKL australia_new_zealand
+
+# Hong Kong/Indonesia/Philippines/Singapore/South Korea/Taiwan/Thailand/Malaysia/Vietnam
+HKG asia_pacific
+CGK asia_pacific
+MNL asia_pacific
+SIN asia_pacific
+ICN asia_pacific
+TPE asia_pacific
+BKK asia_pacific
+KUL asia_pacific
+SGN asia_pacific
+HAN asia_pacific
+
+# India
+BOM india
+DEL india
+MAA india
+BLR india
+HYD india
+CCU india

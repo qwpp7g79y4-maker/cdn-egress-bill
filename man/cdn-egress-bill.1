@@ -1,0 +1,151 @@
+.TH CDN-EGRESS-BILL 1 "2026-11-19" "cdn-egress-bill 1.0.0" "User Commands"
+.SH NAME
+cdn-egress-bill \- estimate CloudFront egress cost from standard logs
+.SH SYNOPSIS
+.nf
+Schat CloudFront-egressiekosten uit standaardlogbestanden (offline, geen AWS-API).
+
+Usage: cdn-egress-bill [OPTIONS] <LOGS>...
+
+Arguments:
+  <LOGS>...  CloudFront-standaardlogbestanden (tekst of gzip)
+
+Options:
+      --prices <PRICES>  Prijsbestand. Standaard: de ingebouwde tarieven
+      --edges <EDGES>    Edge-kaart. Standaard: de ingebouwde IATA-codes
+      --format <FORMAT>  text of json [default: text] [possible values: text, json]
+      --month <MONTH>    Alleen deze maand (YYYY-MM)
+      --as-of <AS_OF>    Peildatum (YYYY-MM-DD) voor de ouderdom van de prijzen. Standaard: vandaag (UTC)
+      --md               Markdown in plaats van tekst of JSON
+      --output <FILE>    Schrijf het rapport naar dit bestand in plaats van naar stdout
+      --quiet            Alleen het resultaat en fouten; geen waarschuwingen
+      --verbose          Voortgang op stderr
+      --strict           Exit 3 als er onberekende bytes of verzoeken zijn
+  -h, --help             Print help
+  -V, --version          Print version
+.fi
+.SH DESCRIPTION
+cdn-egress-bill reads one or more local CloudFront standard log files and estimates the egress cost per price region and per path.
+It reads files only. It makes no network call and uses no AWS SDK.
+.PP
+A log is gzip when its name ends in
+.I .gz
+(any case) or its first two bytes are 1f 8b. Otherwise it is UTF-8 text.
+A gzip file may hold several members. Each member is read, each member may start with a BOM, and zero bytes after a member are ignored. Other data after a member is an error.
+Lines end in LF, CRLF or a lone CR.
+The
+.B #Fields:
+line sets the columns.
+.BR date ,
+.BR x-edge-location ,
+.BR sc-bytes ,
+.B cs-uri-stem
+and
+.B cs-protocol
+are required, in any order. A repeated field name is an error.
+.PP
+The cost comes from
+.BR sc-bytes .
+Every line counts, also HTTP 404.
+The price region comes from the edge location in
+.BR x-edge-location :
+its first three letters are the IATA code of the edge.
+The region is the price region of the edge, not the country of the viewer.
+An unknown code is
+.BR onbekend
+and is not guessed.
+China has a separate price list, is not in the map and stays
+.BR onbekend .
+.PP
+One gigabyte is 1073741824 bytes.
+The first 1 TB per month is free for all regions together.
+The first 10000000 HTTP and HTTPS requests per month are free together.
+Each month has its own free allowance.
+The built-in rates are in
+.I data/prices.txt
+and are the only price table.
+After the region cost, the amount is shared over the paths in proportion to bytes for data and in proportion to the number of requests for requests.
+.PP
+The same path given twice as an argument counts twice.
+There is no flat-rate, no discount and no Savings Bundle.
+The report is an estimate from list prices, not an AWS invoice: free tier, credits and discounts are not included.
+Text prints this on one line and labels the cost of each month \fBestimated_usd_month=\fR; JSON starts with \fB"schema_version": 1\fR and has \fB"estimate": true\fR at the top level and \fBestimated_usd_month_micros\fR for each month.
+Text shows USD with six decimals. JSON shows micro-USD as an integer (1 USD = 1000000).
+Every billable slice is rounded half up to one micro-USD; the sums are not rounded again.
+The descriptions in the help text, the report and most messages are in Dutch. The headings and fixed words of the help text (Usage, Options, Print help) and a few messages are in English.
+A usage error shows what was typed with control, escape, line-break, bidi and invisible characters written as \eu000a and the like, and an argument that is not UTF-8 as bytes such as \exff.
+When the only fault is that an argument is not UTF-8, the message of the argument parser is printed as it is, because it does not repeat the argument.
+.PP
+A date must be a real day from 1970-01-01 to 2100-12-31, and
+.B --month
+takes the years 1970 to 2100.
+.BR sc-bytes
+is a decimal number from 0 to 18446744073709551615.
+A log with no data rows is not an error: the report says
+.BR "geen verkeer"
+and the exit status is 0.
+A log is read completely into memory, about 24 times its size for a text log.
+A line of #Fields names, a price file and an edge map are checked in time proportional to their size: a #Fields line of 2000000 names was read in under a second, 400000 region lines in a few seconds.
+The run time of a price file grows with the number of regions times the number of months in the log: 40000 regions and 1572 months took 13 seconds.
+The size limit below counts the file as stored; a gzip file is not limited after unpacking.
+.SH OPTIONS
+.TP
+.B --prices \fIFILE\fR
+Use this price file instead of the built-in rates.
+.TP
+.B --edges \fIFILE\fR
+Use this edge map instead of the built-in IATA codes.
+.TP
+.B --format \fItext|json\fR
+The output format. The default is
+.BR text .
+.TP
+.B --month \fIYYYY-MM\fR
+Keep only this month (UTC).
+.TP
+.B --as-of \fIYYYY-MM-DD\fR
+The date to measure the age of the price file against. The default is today (UTC). When the \fBchecked_on\fR date of the prices (built-in or \fB--prices\fR) is more than 180 days before it, one warning with that date goes to standard error. The exit code stays 0. A value that is not a real date is exit 2.
+.TP
+.B --md
+Print the report as Markdown instead of text or JSON: one table per region list and per path list for each month, with the same amounts as the text report, the estimate line, and \fB|\fR and \fB\e\fR in a cell written as \fB\e|\fR and \fB\e\e\fR. It cannot be combined with \fB--format\fR (exit 2).
+.TP
+.B --output \fIFILE\fR
+Write the report to this file instead of standard output. The report is written to a temporary file in the same directory and renamed over \fIFILE\fR, so the file is the old one or the whole new one. An existing file is replaced; a symbolic link is replaced, not followed; a directory is refused. A missing parent directory, a directory as \fIFILE\fR or a write error is exit 2 with a message. Nothing goes to standard output.
+.TP
+.B --quiet
+Print only the report and errors: the price-age warning is not printed. Exit codes do not change.
+.TP
+.B --verbose
+Also print progress lines on standard error (the price date, each log, the number of records, the number of months). Standard output does not change. \fB--quiet\fR and \fB--verbose\fR together are a usage error (exit 2).
+.TP
+.B --strict
+Print the report, then exit 3 when there are bytes or requests that could not be priced.
+.TP
+.B -h, --help
+Print the usage text.
+.TP
+.B -V, --version
+Print the version.
+.PP
+A log, a price file or an edge map above 268435456 bytes is refused with exit 2.
+A file that is not a regular file is refused with exit 2, except the pipe on standard input, which is counted while it is read and has the same limit.
+.SH EXIT STATUS
+.TP
+.B 0
+The report was written.
+.TP
+.B 2
+An input or usage error: an invalid month, a missing or unreadable file, a file that is not a regular file, a file over the size limit, an invalid log line, or a standard output that cannot be written.
+The message goes to standard error.
+.TP
+.B 3
+.B --strict
+was given and some bytes or requests could not be priced. The report is still printed.
+.SH EXAMPLES
+.nf
+cdn-egress-bill access.log
+cdn-egress-bill --format json --month 2026-10 E1ABC.2026-10-01.gz E1ABC.2026-10-02.gz
+cdn-egress-bill --strict --prices my-prices.txt access.log
+.fi
+.SH SEE ALSO
+README.md and QUALITY.md in the source tree.

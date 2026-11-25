@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "estimate": true,
+  "source_url": "https://aws.amazon.com/cloudfront/pricing/pay-as-you-go/",
+  "checked_on": "2026-11-09",
+  "bytes_per_gb": 1073741824,
+  "free_data_bytes": 1099511627776,
+  "free_requests": 10000000,
+  "note": "regio = prijsregio van de edge-locatie (x-edge-location), niet het land van de kijker",
+  "excludes": "geen flat-rate, geen korting, geen Savings Bundle",
+  "months": [
+    {
+      "month": "2026-03",
+      "regions": [
+        {
+          "id": "us_mexico_canada",
+          "label": "US/Mexico/Canada",
+          "edges": ["IAD"],
+          "priced": true,
+          "bytes": 2000,
+          "http_requests": 1,
+          "https_requests": 0,
+          "other_requests": 0,
+          "usd_micros": 0
+        },
+        {
+          "id": "europe_israel_turkiye",
+          "label": "Europe/Israel/Türkiye",
+          "edges": ["AMS"],
+          "priced": true,
+          "bytes": 1000,
+          "http_requests": 0,
+          "https_requests": 1,
+          "other_requests": 0,
+          "usd_micros": 0
+        },
+        {
+          "id": "onbekend",
+          "label": "onbekend",
+          "edges": ["ZZZ"],
+          "priced": false,
+          "bytes": 50,
+          "http_requests": 0,
+          "https_requests": 1,
+          "other_requests": 0,
+          "usd_micros": 0
+        }
+      ],
+      "paths": [
+        {
+          "path": "/img.png",
+          "bytes": 2000,
+          "requests": 1,
+          "usd_micros": 0,
+          "unpriced_bytes": 0,
+          "unpriced_requests": 0
+        },
+        {
+          "path": "/secret",
+          "bytes": 50,
+          "requests": 1,
+          "usd_micros": 0,
+          "unpriced_bytes": 50,
+          "unpriced_requests": 1
+        },
+        {
+          "path": "/video.mp4",
+          "bytes": 1000,
+          "requests": 1,
+          "usd_micros": 0,
+          "unpriced_bytes": 0,
+          "unpriced_requests": 0
+        }
+      ],
+      "unknown_codes": ["ZZZ"],
+      "estimated_usd_month_micros": 0,
+      "free_data_bytes_applied": 3000,
+      "free_requests_applied": 2,
+      "unpriced_bytes": 50,
+      "unpriced_requests": 1
+    }
+  ]
+}

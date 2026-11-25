@@ -1,0 +1,10 @@
+# Text files use LF on every OS; the tests compare the man page, the README,
+# the examples and the report byte for byte.
+* text=auto eol=lf
+*.md text eol=lf
+*.1 text eol=lf
+*.txt text eol=lf
+*.log text eol=lf
+
+# The fixture is byte-exact test data: never convert it.
+tests/fixtures/** -text

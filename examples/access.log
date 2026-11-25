@@ -1,0 +1,5 @@
+#Version: 1.0
+#Fields: date x-edge-location sc-bytes cs-uri-stem cs-protocol
+2026-03-01	AMS50-C1	1000	/video.mp4	https
+2026-03-01	IAD89-P1	2000	/img.png	http
+2026-03-02	ZZZ1-C1	50	/secret	https

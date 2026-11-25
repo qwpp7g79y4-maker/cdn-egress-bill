@@ -1,0 +1,32 @@
+# CloudFront pay-as-you-go. Regional Data Transfer Out to Internet, USD per GB.
+# Flat-rate plannen, kortingen en de CloudFront Security Savings Bundle zitten hier niet in.
+# China heeft een aparte prijslijst en staat niet in dit bestand.
+# 1 GB = 1073741824 bytes. 1 TB = 1024 GB. 1 PB = 1024 TB.
+# De eerste 1 TB per maand is gratis voor alle regio's samen (free_data_bytes).
+# De zeven datatarieven daarna zijn Next 9 TB, Next 40 TB, Next 100 TB,
+# Next 350 TB, Next 524 TB, Next 4 PB en Over 5 PB.
+# Verzoeken: USD per 10_000. De eerste 10000000 HTTP(S)-verzoeken per maand zijn gratis.
+
+source_url https://aws.amazon.com/cloudfront/pricing/pay-as-you-go/
+checked_on 2026-11-09
+bytes_per_gb 1073741824
+free_data_bytes 1099511627776
+free_requests 10000000
+
+label us_mexico_canada US/Mexico/Canada
+label europe_israel_turkiye Europe/Israel/Türkiye
+label africa_middle_east South Africa/Kenya/Nigeria/Egypt/Middle East
+label south_america South America
+label japan Japan
+label australia_new_zealand Australia/New Zealand
+label asia_pacific Hong Kong/Indonesia/Philippines/Singapore/South Korea/Taiwan/Thailand/Malaysia/Vietnam
+label india India
+
+region us_mexico_canada 0.085 0.080 0.060 0.040 0.030 0.025 0.020 0.0075 0.0100
+region europe_israel_turkiye 0.085 0.080 0.060 0.040 0.030 0.025 0.020 0.0090 0.0120
+region africa_middle_east 0.110 0.105 0.090 0.080 0.060 0.050 0.040 0.0090 0.0120
+region south_america 0.110 0.105 0.090 0.080 0.060 0.050 0.040 0.0160 0.0220
+region japan 0.114 0.089 0.086 0.084 0.080 0.070 0.060 0.0090 0.0120
+region australia_new_zealand 0.114 0.098 0.094 0.092 0.090 0.085 0.080 0.0090 0.0125
+region asia_pacific 0.120 0.100 0.095 0.090 0.080 0.070 0.060 0.0090 0.0120
+region india 0.109 0.085 0.082 0.080 0.078 0.075 0.072 0.0090 0.0120
