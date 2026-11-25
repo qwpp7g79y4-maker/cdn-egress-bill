@@ -21,6 +21,18 @@ Each command ran apart in the project directory, with the flags shown and no oth
 | `cargo test --locked` | 0 |
 | `cargo test --release --locked` | 0 |
 
+## Rust 1.85
+
+Added 2026-11-25. The three commands below ran with `cargo +1.85` (cargo 1.85.1 (d73d2caf9 2024-12-31)) in `/media/bitboi/DATA/projects/cdn-egress-bill-stdout`, on branch `stdout-probe` at commit `0c9d015`, with no code changed since the commit named at the top. Each ran apart, with the flags shown and no others.
+
+| Command | Exit |
+| --- | ---: |
+| `cargo +1.85 fmt --check` | 0 |
+| `cargo +1.85 clippy --all-targets --locked -- -D warnings` | 0 |
+| `cargo +1.85 test --locked` | 0 |
+
+`cargo +1.85 test --locked` gave 229 passed tests, with the same counts per file as below. 0 failed, 0 ignored. `cargo +1.85 test --release --locked` was not run.
+
 ## Suite
 
 <!-- SUITE_TESTS: 229 -->
@@ -33,7 +45,7 @@ The number is the count of `#[test]` lines under `src/` and `tests/`. Doc-tests 
 
 This measurement did not run the following; each is not run:
 
-- Rust 1.85 (clippy and tests, debug and release): not run.
+- Rust 1.85 `cargo test --release --locked`: not run.
 - Clippy and `cargo check` for `x86_64-pc-windows-gnu` and `x86_64-apple-darwin`: not run.
 - The musl release build and `scripts/check-glibc.sh`: not run.
 - `cargo deny`, `cargo audit`: not run.

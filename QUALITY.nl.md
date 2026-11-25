@@ -21,6 +21,18 @@ Elk commando draaide apart in de projectmap, met de getoonde vlaggen en geen and
 | `cargo test --locked` | 0 |
 | `cargo test --release --locked` | 0 |
 
+## Rust 1.85
+
+Toegevoegd op 2026-11-25. De drie commando's hieronder draaiden met `cargo +1.85` (cargo 1.85.1 (d73d2caf9 2024-12-31)) in `/media/bitboi/DATA/projects/cdn-egress-bill-stdout`, op tak `stdout-probe` bij commit `0c9d015`, zonder codewijziging sinds de commit bovenaan. Elk draaide apart, met de getoonde vlaggen en geen andere.
+
+| Commando | Exit |
+| --- | ---: |
+| `cargo +1.85 fmt --check` | 0 |
+| `cargo +1.85 clippy --all-targets --locked -- -D warnings` | 0 |
+| `cargo +1.85 test --locked` | 0 |
+
+`cargo +1.85 test --locked` gaf 229 geslaagde tests, met dezelfde aantallen per bestand als hieronder. 0 mislukt, 0 genegeerd. `cargo +1.85 test --release --locked` is niet uitgevoerd.
+
 ## Suite
 
 `cargo test --locked` gaf 229 geslaagde tests: 123 in de bibliotheek, 0 in het programma, 1 in `tests/archive_links.rs`, 6 in `tests/claims.rs`, 72 in `tests/cli.rs`, 5 in `tests/docs_clean.rs`, 4 in `tests/documented_shape.rs`, 2 in `tests/examples_golden.rs`, 1 in `tests/handbook_help.rs`, 4 in `tests/json_schema.rs`, 9 in `tests/output.rs`, 1 in `tests/sigint.rs`, 1 in `tests/version.rs`, 0 doc-tests. 0 mislukt, 0 genegeerd. `cargo test --release --locked` gaf dezelfde aantallen.
@@ -29,7 +41,7 @@ Elk commando draaide apart in de projectmap, met de getoonde vlaggen en geen and
 
 Deze meting deed het volgende niet; elk is not run (niet uitgevoerd):
 
-- Rust 1.85 (clippy en tests, debug en release): not run.
+- Rust 1.85 `cargo test --release --locked`: not run.
 - Clippy en `cargo check` voor `x86_64-pc-windows-gnu` en `x86_64-apple-darwin`: not run.
 - De musl-releasebouw en `scripts/check-glibc.sh`: not run.
 - `cargo deny`, `cargo audit`: not run.
