@@ -1,6 +1,6 @@
 # Kwaliteit
 
-Verslag van 2026-11-25. De controles hieronder draaiden op commit `17b10fdc13308759ff66109dafec0c8d61148129` (`17b10fd`), toen de top van `origin/main`, in een schone aparte worktree. De commit die deze pagina vastlegt wijzigt alleen documentatie (dit bestand en `QUALITY.md`).
+Verslag van 2026-11-25. De controles hieronder draaiden op commit `774486157f1b9a8a9856d51bf5bfed87c4ff3791` (`7744861`), de top van de tak `quality-numbers`, in een schone aparte worktree. De commit die deze pagina vastlegt wijzigt alleen documentatie (dit bestand en `QUALITY.md`).
 
 Toolchain: stable rustc 1.99.0 (b940084d7 2026-09-28) met cargo 1.99.0 (5f94df478 2026-08-27). Host: Linux x86_64. Versie 1.0.0 is niet gepubliceerd en heeft geen tag.
 

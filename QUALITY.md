@@ -1,6 +1,6 @@
 # Quality
 
-Record of 2026-11-25. The checks below ran on commit `17b10fdc13308759ff66109dafec0c8d61148129` (`17b10fd`), the tip of `origin/main` at the time, in a clean separate worktree. The commit that records this page changes documentation only (this file and `QUALITY.nl.md`).
+Record of 2026-11-25. The checks below ran on commit `774486157f1b9a8a9856d51bf5bfed87c4ff3791` (`7744861`), the tip of the branch `quality-numbers`, in a clean separate worktree. The commit that records this page changes documentation only (this file and `QUALITY.nl.md`).
 
 Toolchain: stable rustc 1.99.0 (b940084d7 2026-09-28) with cargo 1.99.0 (5f94df478 2026-08-27). Host: Linux x86_64. Version 1.0.0 is not published and has no tag.
 
