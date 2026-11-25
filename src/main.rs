@@ -17,6 +17,7 @@ const VERSION: &str = env!("CARGO_PKG_VERSION");
 #[derive(Parser)]
 #[command(
     name = "cdn-egress-bill",
+    bin_name = "cdn-egress-bill",
     version = VERSION,
     about = "Schat CloudFront-egressiekosten uit standaardlogbestanden (offline, geen AWS-API)."
 )]
