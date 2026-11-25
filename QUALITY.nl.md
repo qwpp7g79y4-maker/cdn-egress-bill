@@ -1,6 +1,6 @@
 # Kwaliteit
 
-Verslag van 2026-11-25. De controles hieronder draaiden op commit `774486157f1b9a8a9856d51bf5bfed87c4ff3791` (`7744861`), de top van de tak `quality-numbers`, in een schone aparte worktree. De commit die deze pagina vastlegt wijzigt alleen documentatie (dit bestand en `QUALITY.md`).
+Verslag van 2026-11-25. De controles hieronder draaiden op commit `c9f1f66cedb97bd7a037a96c97febfee8168d4fc` (`c9f1f66`), de top van de tak `stdout-probe`, in een schone worktree. De commit die deze pagina vastlegt wijzigt alleen documentatie (dit bestand en `QUALITY.md`).
 
 Toolchain: stable rustc 1.99.0 (b940084d7 2026-09-28) met cargo 1.99.0 (5f94df478 2026-08-27). Host: Linux x86_64. Versie 1.0.0 is niet gepubliceerd en heeft geen tag.
 
@@ -23,15 +23,16 @@ Elk commando draaide apart in de projectmap, met de getoonde vlaggen en geen and
 
 ## Rust 1.85
 
-Toegevoegd op 2026-11-25. De drie commando's hieronder draaiden met `cargo +1.85` (cargo 1.85.1 (d73d2caf9 2024-12-31)), op tak `stdout-probe` bij commit `0c9d015`, zonder codewijziging sinds de commit bovenaan. Elk draaide apart, met de getoonde vlaggen en geen andere.
+Toegevoegd op 2026-11-25. De vier commando's hieronder draaiden met `cargo +1.85` (cargo 1.85.1 (d73d2caf9 2024-12-31)), op tak `stdout-probe` bij commit `c9f1f66`, zonder codewijziging sinds de commit bovenaan. Elk draaide apart, met de getoonde vlaggen en geen andere.
 
 | Commando | Exit |
 | --- | ---: |
 | `cargo +1.85 fmt --check` | 0 |
 | `cargo +1.85 clippy --all-targets --locked -- -D warnings` | 0 |
 | `cargo +1.85 test --locked` | 0 |
+| `cargo +1.85 test --release --locked` | 0 |
 
-`cargo +1.85 test --locked` gaf 229 geslaagde tests, met dezelfde aantallen per bestand als hieronder. 0 mislukt, 0 genegeerd. `cargo +1.85 test --release --locked` is niet uitgevoerd.
+`cargo +1.85 test --locked` gaf 229 geslaagde tests, met dezelfde aantallen per bestand als hieronder. 0 mislukt, 0 genegeerd. `cargo +1.85 test --release --locked` gaf 229 geslaagde tests, 0 mislukt, 0 genegeerd (2026-11-25).
 
 ## Suite
 
@@ -41,7 +42,6 @@ Toegevoegd op 2026-11-25. De drie commando's hieronder draaiden met `cargo +1.85
 
 Deze meting deed het volgende niet; elk is not run (niet uitgevoerd):
 
-- Rust 1.85 `cargo test --release --locked`: not run.
 - Clippy en `cargo check` voor `x86_64-pc-windows-gnu` en `x86_64-apple-darwin`: not run.
 - De musl-releasebouw en `scripts/check-glibc.sh`: not run.
 - `cargo deny`, `cargo audit`: not run.

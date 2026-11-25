@@ -1,6 +1,6 @@
 # Quality
 
-Record of 2026-11-25. The checks below ran on commit `774486157f1b9a8a9856d51bf5bfed87c4ff3791` (`7744861`), the tip of the branch `quality-numbers`, in a clean separate worktree. The commit that records this page changes documentation only (this file and `QUALITY.nl.md`).
+Record of 2026-11-25. The checks below ran on commit `c9f1f66cedb97bd7a037a96c97febfee8168d4fc` (`c9f1f66`), the tip of the branch `stdout-probe`, in a clean worktree. The commit that records this page changes documentation only (this file and `QUALITY.nl.md`).
 
 Toolchain: stable rustc 1.99.0 (b940084d7 2026-09-28) with cargo 1.99.0 (5f94df478 2026-08-27). Host: Linux x86_64. Version 1.0.0 is not published and has no tag.
 
@@ -23,15 +23,16 @@ Each command ran apart in the project directory, with the flags shown and no oth
 
 ## Rust 1.85
 
-Added 2026-11-25. The three commands below ran with `cargo +1.85` (cargo 1.85.1 (d73d2caf9 2024-12-31)), on branch `stdout-probe` at commit `0c9d015`, with no code changed since the commit named at the top. Each ran apart, with the flags shown and no others.
+Added 2026-11-25. The four commands below ran with `cargo +1.85` (cargo 1.85.1 (d73d2caf9 2024-12-31)), on branch `stdout-probe` at commit `c9f1f66`, with no code changed since the commit named at the top. Each ran apart, with the flags shown and no others.
 
 | Command | Exit |
 | --- | ---: |
 | `cargo +1.85 fmt --check` | 0 |
 | `cargo +1.85 clippy --all-targets --locked -- -D warnings` | 0 |
 | `cargo +1.85 test --locked` | 0 |
+| `cargo +1.85 test --release --locked` | 0 |
 
-`cargo +1.85 test --locked` gave 229 passed tests, with the same counts per file as below. 0 failed, 0 ignored. `cargo +1.85 test --release --locked` was not run.
+`cargo +1.85 test --locked` gave 229 passed tests, with the same counts per file as below. 0 failed, 0 ignored. `cargo +1.85 test --release --locked` gave 229 passed tests, 0 failed, 0 ignored (2026-11-25).
 
 ## Suite
 
@@ -45,7 +46,6 @@ The number is the count of `#[test]` lines under `src/` and `tests/`. Doc-tests 
 
 This measurement did not run the following; each is not run:
 
-- Rust 1.85 `cargo test --release --locked`: not run.
 - Clippy and `cargo check` for `x86_64-pc-windows-gnu` and `x86_64-apple-darwin`: not run.
 - The musl release build and `scripts/check-glibc.sh`: not run.
 - `cargo deny`, `cargo audit`: not run.
