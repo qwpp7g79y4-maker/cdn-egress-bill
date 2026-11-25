@@ -23,7 +23,7 @@ Each command ran apart in the project directory, with the flags shown and no oth
 
 ## Rust 1.85
 
-Added 2026-11-25. The three commands below ran with `cargo +1.85` (cargo 1.85.1 (d73d2caf9 2024-12-31)) in `/media/bitboi/DATA/projects/cdn-egress-bill-stdout`, on branch `stdout-probe` at commit `0c9d015`, with no code changed since the commit named at the top. Each ran apart, with the flags shown and no others.
+Added 2026-11-25. The three commands below ran with `cargo +1.85` (cargo 1.85.1 (d73d2caf9 2024-12-31)), on branch `stdout-probe` at commit `0c9d015`, with no code changed since the commit named at the top. Each ran apart, with the flags shown and no others.
 
 | Command | Exit |
 | --- | ---: |

@@ -23,7 +23,7 @@ Elk commando draaide apart in de projectmap, met de getoonde vlaggen en geen and
 
 ## Rust 1.85
 
-Toegevoegd op 2026-11-25. De drie commando's hieronder draaiden met `cargo +1.85` (cargo 1.85.1 (d73d2caf9 2024-12-31)) in `/media/bitboi/DATA/projects/cdn-egress-bill-stdout`, op tak `stdout-probe` bij commit `0c9d015`, zonder codewijziging sinds de commit bovenaan. Elk draaide apart, met de getoonde vlaggen en geen andere.
+Toegevoegd op 2026-11-25. De drie commando's hieronder draaiden met `cargo +1.85` (cargo 1.85.1 (d73d2caf9 2024-12-31)), op tak `stdout-probe` bij commit `0c9d015`, zonder codewijziging sinds de commit bovenaan. Elk draaide apart, met de getoonde vlaggen en geen andere.
 
 | Commando | Exit |
 | --- | ---: |
