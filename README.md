@@ -70,13 +70,13 @@ onberekend_bytes: 50
 onberekend_verzoeken: 1
 ```
 
-## Aan de slag in 5 minuten
+## Quickstart in 5 minutes
 
-1. Bouw of installeer de tool (zie Installation): `cargo install --locked --path .`.
-2. Zet een CloudFront-standaardlog (tekst of gzip) in een map, bijvoorbeeld `access.log`.
-3. Draai `cdn-egress-bill access.log`: de uitvoer is een schatting uit lijstprijzen, geen AWS-factuur.
-4. Rekent u liever per maand? Voeg `--month 2026-03` toe. Wilt u een bestand? Voeg `--output rapport.txt` toe. Wilt u Markdown of JSON? Gebruik `--md` of `--format json`.
-5. Een fout geeft exit 2 en een melding op stderr; zie Exit codes.
+1. Build or install the tool (see Installation): `cargo install --locked --path .`.
+2. Put a CloudFront standard log (text or gzip) in a folder, for example `access.log`.
+3. Run `cdn-egress-bill access.log`: the output is an estimate from list prices, not an AWS invoice.
+4. Prefer to count per month? Add `--month 2026-03`. Want a file? Add `--output report.txt`. Want Markdown or JSON? Use `--md` or `--format json`.
+5. An error gives exit 2 and a message on stderr; see Exit codes.
 
 ## Options and usage
 
