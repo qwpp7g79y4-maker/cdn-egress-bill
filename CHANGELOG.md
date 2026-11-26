@@ -97,12 +97,8 @@ Changes made after 2026-11-15; the version number did not change.
 - Version 1.0.0. CI also runs `cargo audit` and `cargo deny --locked check licenses`.
 - `--prices` and `--edges` refuse what is not a regular file and are read no further than the length their metadata reported.
 
-This version is not published and has no git tag.
-
 ## [0.1.0] - 2026-11-09
 
 ### Added
 
 - First release. Estimates CloudFront egress cost per path and per price region from local standard logs, offline, without an AWS SDK.
-
-This version is not published and has no git tag.
