@@ -1,5 +1,7 @@
 # Quality
 
+pep: 8.6
+
 Record of 2026-11-25. The checks below ran on commit `c9f1f66cedb97bd7a037a96c97febfee8168d4fc` (`c9f1f66`), the tip of the branch `stdout-probe`, in a clean worktree. The commit that records this page changes documentation only (this file and `QUALITY.nl.md`).
 
 Toolchain: stable rustc 1.99.0 (b940084d7 2026-09-28) with cargo 1.99.0 (5f94df478 2026-08-27). Host: Linux x86_64. Version 1.0.0 is not published and has no tag.

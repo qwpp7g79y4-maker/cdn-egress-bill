@@ -5,7 +5,9 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.0.0] - 2026-11-15
+
+Changes made after 2026-11-15; the version number did not change.
 
 ### Added
 
@@ -89,7 +91,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `cargo test` in the unpacked package passes. The second check of `tests/docs_clean.rs` no longer fails on `.github/` and `.gitattributes`, which the package leaves out; a path that is not there is skipped.
 - Tests that need a name that is not UTF-8 or an escape byte in a name run on Linux only, and the test that writes to a pipe on `/dev/stdin` no longer returns before the child is waited for, which clippy 1.85 refused.
 
-## [1.0.0] - 2026-11-15
 
 ### Changed
 

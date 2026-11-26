@@ -1,5 +1,7 @@
 # cdn-egress-bill
 
+[![crates.io](https://img.shields.io/crates/v/cdn-egress-bill.svg)](https://crates.io/crates/cdn-egress-bill) [![downloads](https://img.shields.io/crates/d/cdn-egress-bill.svg)](https://crates.io/crates/cdn-egress-bill) [![CI](https://github.com/qwpp7g79y4-maker/cdn-egress-bill/actions/workflows/ci.yml/badge.svg)](https://github.com/qwpp7g79y4-maker/cdn-egress-bill/actions/workflows/ci.yml) [![PEPAI checked](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fqwpp7g79y4-maker%2Fcdn-egress-bill%2Fmain%2F.github%2Fbadge.json)](QUALITY.md) [![MSRV 1.85](https://img.shields.io/badge/MSRV-1.85-blue.svg)](https://github.com/qwpp7g79y4-maker/cdn-egress-bill/blob/main/Cargo.toml) [![License: MIT OR Apache-2.0](https://img.shields.io/badge/license-MIT%20OR%20Apache--2.0-blue.svg)](https://github.com/qwpp7g79y4-maker/cdn-egress-bill#license)
+
 Estimate CloudFront egress cost from standard log files. Reads local files only: there is no AWS SDK and no network client.
 
 The tests and the measured numbers are in `QUALITY.md`.
