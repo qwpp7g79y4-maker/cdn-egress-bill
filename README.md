@@ -1,5 +1,7 @@
 # cdn-egress-bill
 
+[![crates.io](https://img.shields.io/crates/v/cdn-egress-bill.svg)](https://crates.io/crates/cdn-egress-bill) [![downloads](https://img.shields.io/crates/d/cdn-egress-bill.svg)](https://crates.io/crates/cdn-egress-bill) [![CI](https://github.com/qwpp7g79y4-maker/cdn-egress-bill/actions/workflows/ci.yml/badge.svg)](https://github.com/qwpp7g79y4-maker/cdn-egress-bill/actions/workflows/ci.yml) [![PEPAI checked](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fqwpp7g79y4-maker%2Fcdn-egress-bill%2Fmain%2F.github%2Fbadge.json)](QUALITY.md) [![MSRV 1.85](https://img.shields.io/badge/MSRV-1.85-blue.svg)](https://github.com/qwpp7g79y4-maker/cdn-egress-bill/blob/main/Cargo.toml) [![License: MIT OR Apache-2.0](https://img.shields.io/badge/license-MIT%20OR%20Apache--2.0-blue.svg)](https://github.com/qwpp7g79y4-maker/cdn-egress-bill#license)
+
 Estimate CloudFront egress cost from standard log files. Reads local files only: there is no AWS SDK and no network client.
 
 The tests and the measured numbers are in `QUALITY.md`.
@@ -70,13 +72,13 @@ onberekend_bytes: 50
 onberekend_verzoeken: 1
 ```
 
-## Aan de slag in 5 minuten
+## Quickstart in 5 minutes
 
-1. Bouw of installeer de tool (zie Installation): `cargo install --locked --path .`.
-2. Zet een CloudFront-standaardlog (tekst of gzip) in een map, bijvoorbeeld `access.log`.
-3. Draai `cdn-egress-bill access.log`: de uitvoer is een schatting uit lijstprijzen, geen AWS-factuur.
-4. Rekent u liever per maand? Voeg `--month 2026-03` toe. Wilt u een bestand? Voeg `--output rapport.txt` toe. Wilt u Markdown of JSON? Gebruik `--md` of `--format json`.
-5. Een fout geeft exit 2 en een melding op stderr; zie Exit codes.
+1. Build or install the tool (see Installation): `cargo install --locked --path .`.
+2. Put a CloudFront standard log (text or gzip) in a folder, for example `access.log`.
+3. Run `cdn-egress-bill access.log`: the output is an estimate from list prices, not an AWS invoice.
+4. Prefer to count per month? Add `--month 2026-03`. Want a file? Add `--output report.txt`. Want Markdown or JSON? Use `--md` or `--format json`.
+5. An error gives exit 2 and a message on stderr; see Exit codes.
 
 ## Options and usage
 

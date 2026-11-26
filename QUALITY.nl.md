@@ -1,5 +1,7 @@
 # Kwaliteit
 
+pep: 10
+
 Verslag van 2026-11-25. De controles hieronder draaiden op commit `c9f1f66cedb97bd7a037a96c97febfee8168d4fc` (`c9f1f66`), de top van de tak `stdout-probe`, in een schone worktree. De commit die deze pagina vastlegt wijzigt alleen documentatie (dit bestand en `QUALITY.md`).
 
 Toolchain: stable rustc 1.99.0 (b940084d7 2026-09-28) met cargo 1.99.0 (5f94df478 2026-08-27). Host: Linux x86_64. Versie 1.0.0 is niet gepubliceerd en heeft geen tag.
