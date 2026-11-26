@@ -1,6 +1,6 @@
 # Quality
 
-pep: 8.6
+pep: 10
 
 Record of 2026-11-25. The checks below ran on commit `c9f1f66cedb97bd7a037a96c97febfee8168d4fc` (`c9f1f66`), the tip of the branch `stdout-probe`, in a clean worktree. The commit that records this page changes documentation only (this file and `QUALITY.nl.md`).
 

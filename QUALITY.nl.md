@@ -1,6 +1,6 @@
 # Kwaliteit
 
-pep: 8.6
+pep: 10
 
 Verslag van 2026-11-25. De controles hieronder draaiden op commit `c9f1f66cedb97bd7a037a96c97febfee8168d4fc` (`c9f1f66`), de top van de tak `stdout-probe`, in een schone worktree. De commit die deze pagina vastlegt wijzigt alleen documentatie (dit bestand en `QUALITY.md`).
 
