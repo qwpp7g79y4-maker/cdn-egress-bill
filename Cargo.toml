@@ -11,7 +11,7 @@ repository = "https://github.com/qwpp7g79y4-maker/cdn-egress-bill"
 homepage = "https://www.pepai.nl"
 keywords = ["cloudfront", "cdn", "egress", "billing", "cli"]
 categories = ["command-line-utilities"]
-exclude = ["/.github/", "/.gitattributes", "/scripts/"]
+exclude = ["/.github/", "/.gitattributes", "/scripts/", "*-plugin/"]
 
 [dependencies]
 clap = { version = "=4.5.60", features = ["derive"] }

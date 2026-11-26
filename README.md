@@ -14,7 +14,7 @@ The descriptions in the `--help` text and the report are in Dutch, and are quote
 
 ## Installation
 
-Version 1.0.0. Measured on Linux (x86_64) only; see [QUALITY.md](QUALITY.md) for what was and was not run. From crates.io, once 1.0.0 is published there:
+Version 1.0.0. Measured on Linux (x86_64) only; see [QUALITY.md](QUALITY.md) for what was and was not run. From crates.io:
 
 ```sh
 cargo install cdn-egress-bill
@@ -29,7 +29,7 @@ cargo install --locked --path .
 cdn-egress-bill --help
 ```
 
-This crate is not published and has no git tag. Until then, install from this checkout. The tests that `cargo test --locked` runs are counted in [QUALITY.md](QUALITY.md).
+The tests that `cargo test --locked` runs are counted in [QUALITY.md](QUALITY.md).
 
 <!-- SUITE_TESTS: 229 -->
 
