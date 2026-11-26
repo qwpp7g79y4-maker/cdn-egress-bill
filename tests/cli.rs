@@ -28,7 +28,7 @@ fn version_is_1_0_0() {
     let output = command().arg("--version").output().unwrap();
     assert!(output.status.success());
     let text = String::from_utf8(output.stdout).unwrap();
-    assert!(text.contains("1.0.0"));
+    assert!(text.contains("1.0.1"));
 }
 
 #[test]
