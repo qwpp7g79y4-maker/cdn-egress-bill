@@ -27,7 +27,7 @@ cargo install --locked --path .
 cdn-egress-bill --help
 ```
 
-Dit crate heeft geen git-tag. De tests die `cargo test --locked` draait, zijn geteld in [QUALITY.md](QUALITY.md).
+De tests die `cargo test --locked` draait, zijn geteld in [QUALITY.md](QUALITY.md).
 
 
 ## Snelstart
