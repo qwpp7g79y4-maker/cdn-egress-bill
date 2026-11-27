@@ -14,7 +14,7 @@ De beschrijvingen in de `--help`-tekst en het rapport zijn Nederlands en staan i
 
 ## Installatie
 
-Versie 1.0.1. Alleen op Linux (x86_64) gemeten; zie [QUALITY.nl.md](QUALITY.nl.md) voor wat wel en niet is uitgevoerd. Van crates.io, zodra 1.0.1 daar staat:
+Versie 1.0.2. Alleen op Linux (x86_64) gemeten; zie [QUALITY.nl.md](QUALITY.nl.md) voor wat wel en niet is uitgevoerd. Van crates.io:
 
 ```sh
 cargo install cdn-egress-bill
@@ -27,7 +27,7 @@ cargo install --locked --path .
 cdn-egress-bill --help
 ```
 
-Dit crate is niet gepubliceerd en heeft geen git-tag. Installeer tot dan vanuit deze checkout. De tests die `cargo test --locked` draait, zijn geteld in [QUALITY.md](QUALITY.md).
+Dit crate heeft geen git-tag. De tests die `cargo test --locked` draait, zijn geteld in [QUALITY.md](QUALITY.md).
 
 
 ## Snelstart
@@ -83,7 +83,7 @@ onberekend_verzoeken: 1
 cdn-egress-bill [--prices FILE] [--edges FILE] [--format text|json] [--month YYYY-MM] [--as-of YYYY-MM-DD] [--md] [--output FILE] [--quiet | --verbose] [--strict] LOG [LOG ...]
 ```
 
-`LOG` is een CloudFront-standaardlog, als tekst of gzip. Zonder `--prices` en `--edges` gelden de ingebouwde bestanden `data/prices.txt` en `data/edges.txt`. `--format` is standaard `text`. `--month` houdt één maand over (UTC, `YYYY-MM`). `--as-of YYYY-MM-DD` (standaard: vandaag, UTC) is de datum waartegen de ouderdom van de prijzen wordt gemeten: ligt de `checked_on`-datum van het prijsbestand (ingebouwd of `--prices`) meer dan 180 dagen daarvoor, dan gaat er één waarschuwing met die datum naar stderr en blijft de exitcode 0. `--output FILE` schrijft het rapport naar `FILE` in plaats van naar stdout: het gaat eerst naar een tijdelijk bestand in dezelfde map en wordt dan over `FILE` heen hernoemd, zodat het bestand het oude of het hele nieuwe is, nooit een half rapport. Een bestaand bestand wordt vervangen, een symbolische link op `FILE` wordt vervangen en niet gevolgd, en een map wordt geweigerd. Een ontbrekende bovenliggende map (die wordt niet aangemaakt), een map als doel of een schrijffout is exit 2 met een melding. `--strict` (exit 3) schrijft het bestand ook. `--quiet` print alleen het rapport en fouten (geen waarschuwing); `--verbose` voegt voortgangsregels op stderr toe (prijsdatum, elk log, aantallen records en maanden) en laat stdout zoals het is. Samen zijn ze een gebruiksfout, exit 2. `--version` print de crateversie; een debug-build uit een git-checkout van dit crate voegt de korte commit toe, bijvoorbeeld `cdn-egress-bill 1.0.1 (a1b2c3d)`, en een release-build of uitgepakt pakket print alleen de versie.
+`LOG` is een CloudFront-standaardlog, als tekst of gzip. Zonder `--prices` en `--edges` gelden de ingebouwde bestanden `data/prices.txt` en `data/edges.txt`. `--format` is standaard `text`. `--month` houdt één maand over (UTC, `YYYY-MM`). `--as-of YYYY-MM-DD` (standaard: vandaag, UTC) is de datum waartegen de ouderdom van de prijzen wordt gemeten: ligt de `checked_on`-datum van het prijsbestand (ingebouwd of `--prices`) meer dan 180 dagen daarvoor, dan gaat er één waarschuwing met die datum naar stderr en blijft de exitcode 0. `--output FILE` schrijft het rapport naar `FILE` in plaats van naar stdout: het gaat eerst naar een tijdelijk bestand in dezelfde map en wordt dan over `FILE` heen hernoemd, zodat het bestand het oude of het hele nieuwe is, nooit een half rapport. Een bestaand bestand wordt vervangen, een symbolische link op `FILE` wordt vervangen en niet gevolgd, en een map wordt geweigerd. Een ontbrekende bovenliggende map (die wordt niet aangemaakt), een map als doel of een schrijffout is exit 2 met een melding. `--strict` (exit 3) schrijft het bestand ook. `--quiet` print alleen het rapport en fouten (geen waarschuwing); `--verbose` voegt voortgangsregels op stderr toe (prijsdatum, elk log, aantallen records en maanden) en laat stdout zoals het is. Samen zijn ze een gebruiksfout, exit 2. `--version` print de crateversie; een debug-build uit een git-checkout van dit crate voegt de korte commit toe, bijvoorbeeld `cdn-egress-bill 1.0.2 (a1b2c3d)`, en een release-build of uitgepakt pakket print alleen de versie.
 
 ## Voorbeeld
 
@@ -235,7 +235,7 @@ Exitcode 0 is gelukt. Exitcode 130 is SIGINT (Ctrl-C): het programma print `cdn-
 
 ## Beperkingen
 
-Versie 1.0.1 prijst alleen CloudFront pay-as-you-go-egressie uit standaardlogs. Er is geen AWS SDK en geen netwerkaanroep. De ingebouwde tarieven staan in `data/prices.txt`, gecontroleerd op 2026-11-09. China wordt niet berekend. Er is geen flat-rate, geen korting en geen Savings Bundle. Een onbekende edge wordt niet geraden en zijn bytes en verzoeken blijven onberekend. De regio is de edge, niet de kijker. Hetzelfde log twee keer opgegeven telt twee keer. Een bestand boven 268435456 bytes wordt geweigerd, maar een gzip-bestand is na het uitpakken niet begrensd. De helptekst en de meeste meldingen zijn Nederlands, enkele meldingen zijn Engels. Het rapport is door tabs gescheiden tekst voor een terminal. Een pad dat met `=`, `+`, `-` of `@` begint, wordt ongewijzigd geschreven, dus een spreadsheet die de uitvoer opent kan het als formule lezen; echte CloudFront-paden beginnen met `/`. De getallen zijn een schatting, geen factuur.
+Versie 1.0.2 prijst alleen CloudFront pay-as-you-go-egressie uit standaardlogs. Er is geen AWS SDK en geen netwerkaanroep. De ingebouwde tarieven staan in `data/prices.txt`, gecontroleerd op 2026-11-09. China wordt niet berekend. Er is geen flat-rate, geen korting en geen Savings Bundle. Een onbekende edge wordt niet geraden en zijn bytes en verzoeken blijven onberekend. De regio is de edge, niet de kijker. Hetzelfde log twee keer opgegeven telt twee keer. Een bestand boven 268435456 bytes wordt geweigerd, maar een gzip-bestand is na het uitpakken niet begrensd. De helptekst en de meeste meldingen zijn Nederlands, enkele meldingen zijn Engels. Het rapport is door tabs gescheiden tekst voor een terminal. Een pad dat met `=`, `+`, `-` of `@` begint, wordt ongewijzigd geschreven, dus een spreadsheet die de uitvoer opent kan het als formule lezen; echte CloudFront-paden beginnen met `/`. De getallen zijn een schatting, geen factuur.
 
 ## Prijzen en verantwoordelijkheid
 
